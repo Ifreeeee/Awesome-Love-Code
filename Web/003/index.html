@@ -66,9 +66,6 @@
             
             var canvas = $('#canvas');
 
-            $('#media').load();
-            $('#media').pause();
-
             if (!canvas[0].getContext) {
                 $("#error").show();
                 return false;
@@ -122,7 +119,7 @@
             var hold = 1;
 
             canvas.click(function (e) {
-                $('#media').play();
+                $('#media').load();
                 var offset = canvas.offset(), x, y;
                 x = e.pageX - offset.left;
                 y = e.pageY - offset.top;

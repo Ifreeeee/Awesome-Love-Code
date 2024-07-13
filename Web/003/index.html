@@ -63,8 +63,12 @@
 
     <script>
         (function () {
-            var audio = document.getElementById("media");
+            
+            var media = $('#media');
             var canvas = $('#canvas');
+
+            media.load();
+            media.pause();
 
             if (!canvas[0].getContext) {
                 $("#error").show();
@@ -119,7 +123,7 @@
             var hold = 1;
 
             canvas.click(function (e) {
-                audio.play();
+                media.play();
                 var offset = canvas.offset(), x, y;
                 x = e.pageX - offset.left;
                 y = e.pageY - offset.top;

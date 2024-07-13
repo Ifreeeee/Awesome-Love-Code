@@ -59,7 +59,7 @@
 
     </div>
 
-	<audio controls preload="auto" autoplay="" id="media" autoplay preload loop="loop">
+	<audio preload="auto" autoplay="" id="media" loop="loop">
 		<source src="./Web/003/我们两.mp3" type="audio/mpeg">
 		<source src="./Web/003/我的歌声里.mp3" type="audio/mpeg">
 	</audio>
@@ -223,6 +223,20 @@
             }));
 
             runAsync().start();
+
+		// 音频循环播放
+		var media = document.getElementById('media');
+		var sources = media.getElementsByTagName('source');
+		var current = 0;
+		
+		media.addEventListener('ended', function () {
+			current++;
+			if (current >= sources.length) {
+				current = 0;
+			}
+			media.src = sources[current].src;
+			media.play();
+		});
         })();
     </script>
 
